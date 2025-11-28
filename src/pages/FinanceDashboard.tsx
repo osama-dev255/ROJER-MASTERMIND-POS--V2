@@ -5,7 +5,6 @@ import {
   TrendingUp,
   PieChart,
   FileText,
-  BarChart3,
   Settings,
   Bot
 } from "lucide-react";
@@ -52,13 +51,6 @@ export const FinanceDashboard = ({ username, onBack, onLogout, onNavigate }: Fin
       title: "Financial Reports",
       description: "View detailed financial reports and statements",
       icon: FileText,
-      color: "bg-white border border-gray-200"
-    },
-    {
-      id: "analytics",
-      title: "Financial Analytics",
-      description: "Analyze financial performance and trends",
-      icon: BarChart3,
       color: "bg-white border border-gray-200"
     },
     {
@@ -115,7 +107,6 @@ export const FinanceDashboard = ({ username, onBack, onLogout, onNavigate }: Fin
           ))}
         </div>
         
-
       </main>
     </div>
   );

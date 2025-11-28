@@ -294,11 +294,11 @@ export const getUserByEmail = async (email: string): Promise<User | null> => {
     const { data, error } = await supabase
       .from('users')
       .select('*')
-      .eq('email', email)
-      .single();
+      .eq('email', email);
       
     if (error) throw error;
-    return data || null;
+    // Return the first user if found, otherwise null
+    return data && data.length > 0 ? data[0] : null;
   } catch (error) {
     console.error('Error fetching user by email:', error);
     return null;

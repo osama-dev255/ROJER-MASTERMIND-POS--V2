@@ -3,7 +3,6 @@ import { DashboardCard } from "@/components/DashboardCard";
 import { 
   Calculator, 
   Receipt, 
-  BarChart3, 
   Users,
   ShoppingCart,
   Package,
@@ -23,38 +22,31 @@ interface SalesDashboardProps {
 export const SalesDashboard = ({ username, onBack, onLogout, onNavigate }: SalesDashboardProps) => {
   const salesModules = [
     {
-      id: "cart",
+      id: "sales-cart",
       title: "Sales Terminal",
-      description: "Process new sales transactions and manage customer orders",
-      icon: Calculator,
+      description: "Process sales transactions and manage customer purchases",
+      icon: ShoppingCart,
       color: "bg-white border border-gray-200"
     },
     {
-      id: "orders",
+      id: "sales-orders",
       title: "Sales Orders",
-      description: "View and manage all sales orders and transactions",
-      icon: FileText,
-      color: "bg-white border border-gray-200"
-    },
-    {
-      id: "transactions",
-      title: "Transaction History",
-      description: "View and manage past sales transactions and receipts",
+      description: "View and manage customer orders and transaction history",
       icon: Receipt,
-      color: "bg-white border border-gray-200"
-    },
-    {
-      id: "analytics",
-      title: "Sales Analytics",
-      description: "Analyze sales performance, trends, and customer insights",
-      icon: BarChart3,
       color: "bg-white border border-gray-200"
     },
     {
       id: "customers",
       title: "Customer Management",
-      description: "Manage customer information and purchase history",
+      description: "Manage customer profiles, loyalty programs, and contact information",
       icon: Users,
+      color: "bg-white border border-gray-200"
+    },
+    {
+      id: "transactions",
+      title: "Transaction History",
+      description: "View detailed records of all sales transactions",
+      icon: FileText,
       color: "bg-white border border-gray-200"
     },
     {
@@ -84,13 +76,6 @@ export const SalesDashboard = ({ username, onBack, onLogout, onNavigate }: Sales
       description: "Quickly add products to cart using barcode scanner",
       icon: Scan,
       color: "bg-white border border-gray-200"
-    },
-    {
-      id: "test-data",
-      title: "Test Data View",
-      description: "View raw data for debugging purposes",
-      icon: FileText,
-      color: "bg-yellow-50 border border-yellow-200"
     },
   ];
 

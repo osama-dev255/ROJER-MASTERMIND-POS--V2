@@ -18,13 +18,27 @@ import { QRDebugTest } from "./pages/QRDebugTest";
 import QRTestPage from "./pages/QRTestPage";
 import { useEffect } from "react";
 // Import authentication context
-import { AuthProvider } from "@/contexts/AuthContext";
+import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 // Import language context
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 // Import Supabase test function
 import { testSupabaseConnection } from "@/services/supabaseService";
 import { testRLSPolicies } from "@/services/databaseService";
+import { useNavigate } from "react-router-dom";
+
+// Create a wrapper component for Index that provides the onLogout prop
+const IndexWrapper = () => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/');
+  };
+
+  return <Index onLogout={handleLogout} />;
+};
 
 const queryClient = new QueryClient();
 
@@ -58,7 +72,7 @@ const App = () => {
             <Sonner />
             <BrowserRouter>
               <Routes>
-                <Route path="/" element={<Index />} />
+                <Route path="/" element={<IndexWrapper />} />
                 <Route path="/dashboard" element={<Dashboard username="admin" onNavigate={() => {}} onLogout={() => {}} />} />
                 <Route path="/sales" element={<SalesDashboard username="admin" onBack={() => {}} onLogout={() => {}} onNavigate={() => {}} />} />
                 <Route path="/sales/cart" element={<SalesCart username="admin" onBack={() => {}} onLogout={() => {}} />} />

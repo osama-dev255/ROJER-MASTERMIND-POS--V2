@@ -70,8 +70,7 @@ export type ViewState =
   | "income-statement"
   | "settings"
   | "automated"
-  | "finance"
-  | "scanner";
+  | "finance";
 
 interface IndexProps {
   initialView?: ViewState;

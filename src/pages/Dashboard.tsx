@@ -1,27 +1,23 @@
-import { DashboardCard } from "@/components/DashboardCard";
 import { Navigation } from "@/components/Navigation";
+import { DashboardCard } from "@/components/DashboardCard";
 import { 
-  Package, 
-  ShoppingCart, 
-  ShoppingBag, 
+  ShoppingCart,
+  Package,
+  ShoppingBag,
   Wallet,
-  Users,
-  Receipt,
-  BarChart3,
-  User,
-  Truck
+  Users
 } from "lucide-react";
 
 interface DashboardProps {
   username: string;
-  onNavigate: (dashboard: string) => void;
+  onNavigate: (module: string) => void;
   onLogout: () => void;
 }
 
 export const Dashboard = ({ username, onNavigate, onLogout }: DashboardProps) => {
   const dashboards = [
     {
-      id: "inventory",
+      id: "products",
       title: "Inventory Management",
       description: "Manage your products, stock levels, and inventory tracking",
       icon: Package,
@@ -49,31 +45,10 @@ export const Dashboard = ({ username, onNavigate, onLogout }: DashboardProps) =>
       color: "bg-white border border-gray-200"
     },
     {
-      id: "customers",
-      title: "Customer Management",
-      description: "Manage customer information and loyalty programs",
-      icon: Users,
-      color: "bg-white border border-gray-200"
-    },
-    {
-      id: "transactions",
-      title: "Transaction History",
-      description: "View and manage all sales transactions",
-      icon: Receipt,
-      color: "bg-white border border-gray-200"
-    },
-    {
-      id: "reports",
-      title: "Business Analytics",
-      description: "Analyze sales performance and business metrics",
-      icon: BarChart3,
-      color: "bg-white border border-gray-200"
-    },
-    {
       id: "employees",
       title: "Employee Management",
       description: "Manage staff members and permissions",
-      icon: User,
+      icon: Users,
       color: "bg-white border border-gray-200"
     },
   ];
